@@ -14,11 +14,14 @@
     <body>
         
         <!-- <input type="text" id="searchInput" placeholder="Enter your search query" value="sidemen"> -->
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class="d-grid gap-2 col-9 mx-auto">
-            <button class="btn btn-danger btn-lg mx-250 my-5 fs-1" onclick="searchAndPlay()"><b>Start</b></button>
+            <button class="btn btn-danger btn-lg mx-250 my-5 fs-1" onclick="searchAndPlay()"><b>>>></b></button>
         </div>
         <b><h1 class="fs-1 font-weight-bolder" id="ep" style="margin-left: 950px; color:white"></h1></b>
+        <div class="d-grid gap-2 col-9 mx-auto">
+            <button class="btn btn-danger btn-lg mx-250 my-5 fs-1" onclick="search()"><b><<<</b></button>
+        </div>
         <br>
         <iframe id="dynamicLink" width="0" height="0" src="" SECURE_REFERRER_POLICY = "no-referrer-when-downgrade" referrerpolicy="no-referrer-when-downgrade" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     
@@ -49,6 +52,30 @@ function searchAndPlay(){
                             console.error('The iframe does not have a valid source URL.');
                         }
                         i++;
+            localStorage.setItem('i', i);
+}
+
+function search(){
+    console.log(i);
+    const videoId = videoIds[616-i+1];
+    console.log(videoId)
+    
+                        const videoLink = `https://www.youtube.com/embed/${videoId}`;
+                        console.log('Link to the first video:', videoLink);
+                        // player.loadVideoById(videoId);
+
+                        document.getElementById('dynamicLink').src = videoLink;
+
+                        const iframe = document.getElementById('dynamicLink');
+                        const iframeSrc = iframe.src;
+
+                        if (iframeSrc) {
+                            // Open the URL of the iframe's content in a new tab
+                            window.open(iframeSrc, '_self');
+                        } else {
+                            console.error('The iframe does not have a valid source URL.');
+                        }
+                        // i++;
             localStorage.setItem('i', i);
 }
     </script>
