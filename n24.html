@@ -1,21 +1,41 @@
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>News</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UCN</title>
+    <!-- <style>
         iframe{
             margin-left : -500px;
             margin-top : -500px;
         }
-    </style>
-  </head>
-  <body>
-    <iframe width="1920" height="1080" src="https://ucnnews.live/livetv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </style> -->
+    <style>
+        .zoom-container {
+            overflow: hidden;
+            width: 1920px; /* Set the desired width */
+            height: 1080px; /* Set the desired height */
+            position: relative;
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  </body>
+        /* Define the element to be zoomed in */
+        .zoomed-element {
+            width: 100%; /* Set the width of the zoomed-in content */
+            height: 100%; /* Set the height of the zoomed-in content */
+            transform: scale(1.5); /* Adjust the scale to control the zoom level */
+            transform-origin: center; /* Adjust the zoom origin */
+            position: absolute;
+        }
+
+        /* Optional: Add a border to the zoomed-in section */
+        .zoom-container {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="zoom-container">
+        <div class="zoomed-element">
+        <iframe width="1920" height="1080" src="https://ucnnews.live/livetv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+</body>
 </html>
